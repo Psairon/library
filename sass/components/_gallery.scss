@@ -1,0 +1,41 @@
+.about{
+    background: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-content{
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.gallery{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px 0px 20px;
+    overflow: hidden;
+}
+
+
+.gallery-line{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 24px;
+    position: relative;
+}
+
+.slider-novigation{
+    padding: 40px 686px;
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,153 @@
+.digital-library-cards{
+    width: 1400px;
+    height: 614px;
+    flex-direction: column;
+    align-items: center; 
+    gap: 40px;
+    background: #FFF;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    padding: 0 20px 0 20px;
+}
+
+.library-card{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 344px;
+}
+
+@media (max-width: 768px) {
+    .library-card {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+.find-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 600px;
+    height: 453px;
+    gap: 20px;
+}
+
+.find-card-text{
+    font-family: 'Inter';
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 2%;
+    text-align: left;
+    align-self: center;
+}
+
+.white-bg{
+    box-sizing: border-box;
+    border: 3px solid rgb(187, 148, 95);
+    background: rgb(255, 255, 255);
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+.gold-bg{
+    background: rgb(187, 148, 95);
+    margin: 20px 20px 0px 20px;
+    padding: 20px 20px 25px 20px;
+    gap: 25px;
+    width: 515px;
+    height: 232px;
+    display: flex;
+    flex-direction: column;
+}
+
+.brooklyn-public-library-text{
+    font-family: 'Forum';
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: 2%;
+    text-align: left;
+}
+
+.input-library-card{
+    border-radius: 10px;
+    background: rgb(255, 255, 255);
+    width: 500px;
+    height: 66px;
+    color: rgb(142, 142, 142);
+    font-family: 'Forum';
+    font-size: 30px;
+    font-weight: 400;  
+    line-height: 50px;
+    letter-spacing: 2%;
+    text-align: left;
+    padding-left: 20px; 
+    outline:none;
+    border: none;
+}
+
+.card-button{
+    box-sizing: border-box;
+    border: 1px solid rgb(12, 12, 14);
+    border-radius: 2px;
+    width: 262px;
+    height: 44px;
+    background-color: #FFF;
+    padding: 10px 40px 10px 40px;
+    font-family: 'Inter';
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.get-a-card{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 35px;
+    width: 456px;
+}
+
+.get-a-card-text{
+    font-family: 'Forum';
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 33px;
+    letter-spacing: 2%;
+    text-align: center;
+}
+
+.card-text{
+    font-family: 'Inter';
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2%;
+    text-align: right;
+}
+
+.get-a-card-buttons{
+    display: flex;
+    gap: 20px;
+}
+
+.get-a-card-button{
+    box-sizing: border-box;
+    border: 1px solid rgb(12, 12, 14);
+    border-radius: 2px;
+    background-color: #FFF;
+    width: 75px;
+    height: 30px;
+    font-family: 'Inter';
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 12px;
+    letter-spacing: 1px;
+    text-align: center;
+}

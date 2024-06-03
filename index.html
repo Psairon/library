@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="sass/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="script.js" defer></script>
     <title>Library</title>
 </head>
-<body>
+<body class="wrapper">
     <header>
-        <h1 class="page-title">Brooklyn Public Library</h1>
+        <h1>Brooklyn Public Library</h1>
         <nav>
             <ul class="page-navigation">
                 <li class="navigation-button"><a href="#about" class="navigation-text">About</a></li>
@@ -17,28 +19,34 @@
                 <li class="navigation-button"><a href="#our-contacts" class="navigation-text">Contacts</a></li>
                 <li class="navigation-button"><a href="#digital-library-cards" class="navigation-text">Library Card</a></li>
             </ul>
+            <div class="icon-profile">
+                <img src="images/icon_profile.svg" alt="icon profile">
+            </div>
         </nav>
-        <div class="icon-profile">
-            <img src="images/icon_profile.svg" alt="icon profile">
-        </div>
     </header>
         <main>
-            <section class="welcome">
-                <p class="welcome-text">Welcome <br>to the Brooklyn <br>Library</p>
+            <section class="welcome-block">
+                <div class="welcome">
+                    <p class="welcome-text">Welcome <br>to the Brooklyn <br>Library</p>
+                </div>
             </section>
             <section class="about">
-                <h2 class="about-title">About</h2>
+                <h2>About</h2>
                 <p class="about-content">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside </p>
-                <div class="about-gallery">
-                    <div class="gallery-element"></div>
-                    <div class="gallery-element"></div>
-                    <div class="gallery-element"></div>
-                </div>
+                <div class="gallery">
+                    <div class="gallery-line">
+                        <img src="images/gallery-1.png" alt="gallery-1">
+                        <img src="images/gallery-2.png" alt="gallery-2">
+                        <img src="images/gallery-3.png" alt="gallery-3">
+                        <img src="images/gallery-4.png" alt="gallery-4">
+                        <img src="images/gallery-5.png" alt="gallery-5">
+                    </div>
+                </div>    
                 <div class="slider-novigation">
-                    <span class="dot-active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                </div>   
+                    <input checked type="radio" id="start" checked>
+                    <input type="radio" id="next">
+                    <input type="radio"  id="finish">
+                </div>     
             </section>
             <section class="favorites">
                 <h2>Favorites</h2>
@@ -69,24 +77,23 @@
                         <p class="book-caption">Staff Picks</p>
                         <div class="book-line"></div>
                         <div class="book-general-information">
-                            <p class="book-title">Cackle</p> 
-                            <p class="book-author">By Rachel Harrison</p>
-                        </div>    
-                        <p class="book-contents">Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.</p>
-                        <button class="book-button"> Buy </button>
-                        <img src="../images/book-2.png" alt="" class="book-cover">
-                    </div>
-                    <br>
-                    <div class="book">
-                        <p class="book-caption">Staff Picks</p>
-                        <div class="book-line"></div>
-                        <div class="book-general-information">
                             <p class="book-title">Dante: Poet of the Secular World </p> 
                             <p class="book-author">By Erich Auerbach</p>
                         </div>    
                         <p class="book-contents">Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.</p>
                         <button class="book-button"> Buy </button>
                         <img src="../images/book-3.png" alt="Cackle" class="book-cover">
+                    </div>
+                    <div class="book">
+                        <p class="book-caption">Staff Picks</p>
+                        <div class="book-line"></div>
+                        <div class="book-general-information">
+                            <p class="book-title">Cackle</p> 
+                            <p class="book-author">By Rachel Harrison</p>
+                        </div>    
+                        <p class="book-contents">Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.</p>
+                        <button class="book-button"> Buy </button>
+                        <img src="../images/book-2.png" alt="" class="book-cover">
                     </div>
                     <div class="book">
                         <p class="book-caption">Staff Picks</p>

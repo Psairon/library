@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Forum&family=Inter&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@700&display=swap');
+@font-face {
+    font-family: 'Inter-bold';
+    src: url(../fonts/Inter-Bold.otf);
+}
+
+@import "abstract/_constants.scss";
+@import "abstract/_placeholders.scss";
+
+@import "base/_base.scss";
+
+@import "layouts/_wrapper.scss";
+@import "layouts/_header.scss";
+@import "layouts/_footer.scss";
+
+
+@import "components/_welcome.scss";
+@import "components/_gallery.scss";
+@import "components/_favorites.scss";
+@import "components/_coffee_shop.scss";
+@import "components/_contacts.scss";
+@import "components/_cards.scss";
+
+
+

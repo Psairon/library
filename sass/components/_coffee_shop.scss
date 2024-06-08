@@ -1,7 +1,6 @@
 .coffee-shop{
-    padding: 20px 20px 40px 20px;
+    padding: 60px 20px 40px 20px;
     flex-direction: column;
-
     align-items: center;
     gap: 40px;
     background: #FFF;
@@ -11,13 +10,8 @@
 
 .coffee-shop-text{
     color: #000;
+    @include font ('Inter', 20px, 400, 40px, 2px);
     text-align: center;
-    font-family: 'Inter';
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 40px;
-    letter-spacing: 2px;
     margin-top: 40px;
 }
 
@@ -26,13 +20,16 @@
     grid-template-columns: repeat(2, 1fr); 
     gap: 40px;
     margin-top: 40px;
+    @include media-tablet {
+        grid-template-columns: repeat(1, 1fr);
+        width: 100%;
+    }
+    @include media-laptop {
+        grid-template-columns: repeat(1, 1fr);
+        width: 100%;
+    }
 }
 
-@media (max-width: 768px) {
-    .coffee-menu {
-      grid-template-columns: repeat(1, 1fr);
-    }
-  }
 
 .menu-coffee-tea{
     display: flex;
@@ -42,12 +39,7 @@
     align-items: flex-end;
     align-content: stretch;
     color: $color-praimary;
-    font-family: 'Forum';
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 40px;
-    letter-spacing: 2px;
+    @include font ('Forum', 40px, 400, 40px, 2px);
     text-transform: capitalize;
     padding-right: 201px;
 }
@@ -59,12 +51,7 @@
     gap: 40px;
     align-items: flex-end;
     color: $color-praimary;
-    font-family: Forum;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 40px;
-    letter-spacing: 2px;
+    @include font ('Forum', 40px, 400, 40px, 2px);
     text-transform: capitalize;
 }
 
@@ -75,12 +62,7 @@
     align-self: stretch;
     gap: 60px;
     color: #000;
-    font-family: 'Inter';
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 40px;
-    letter-spacing: 2px;
+    @include font ('Inter', 20px, 400, 40px, 2px);
     text-transform: capitalize;
 }
 
@@ -91,12 +73,7 @@
 
 .menu-position-value{
     color: #000;
-    font-family: 'Forum';
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 40px;
-    letter-spacing: 2px;
+    @include font ('Forum', 20px, 400, 40px, 2px);
     text-transform: capitalize;
     align-self: flex-end;
 }
@@ -104,7 +81,7 @@
 .menu-dash{
     width: 100px;
     height: 1px;
-    background: #BB945F;
+    background: $color-additional;
     flex: 0 1 auto;
     align-self: center;
 }

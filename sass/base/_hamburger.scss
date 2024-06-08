@@ -1,0 +1,38 @@
+%humberger-line {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    border-radius: 3px;
+}
+
+.humberger {
+    display: none;
+    width: 45px;
+    height: 30px;
+    position: relative;
+    margin-left: 20px;
+    @include media-tablet {
+        display: inline-block;
+    }
+    @include media-laptop {
+        display: inline-block;
+    }
+    &-line {
+        @extend %humberger-line;
+        top: calc(50% - 1.5px);
+        left: 0;
+    };
+    &::before {
+        @extend %humberger-line;
+        top: 0;
+        left: 0;
+    };
+    &::after {
+        @extend %humberger-line;
+        bottom: 0;
+        left: 0;
+    }
+}

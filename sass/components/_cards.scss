@@ -1,43 +1,42 @@
 .digital-library-cards{
-    width: 1400px;
-    height: 614px;
+    padding: 20px;
     flex-direction: column;
     align-items: center; 
-    gap: 40px;
     background: #FFF;
-    margin-left: auto;
-    margin-right: auto;
     display: flex;
-    padding: 0 20px 0 20px;
+    @include media-tablet {
+        padding: 0px 85px 40px;
+    }
+    @include media-laptop {
+        padding: 0px 85px 40px;
+    }
 }
 
 .library-card{
+    padding-top: 50px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 344px;
+    @include media-tablet { 
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+    }   
+    @include media-laptop {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+    }
 }
 
-@media (max-width: 768px) {
-    .library-card {
-      grid-template-columns: repeat(1, 1fr);
-    }
-  }
 
 .find-card{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 600px;
-    height: 453px;
-    gap: 20px;
 }
 
 .find-card-text{
+    @include font ('Inter', 30px, 400, 36px, 2%);
     font-family: 'Inter';
-    font-size: 30px;
-    font-weight: 400;
-    line-height: 36px;
-    letter-spacing: 2%;
     text-align: left;
     align-self: center;
 }
@@ -51,6 +50,7 @@
     flex-direction: column;
     align-items: center;
     padding-bottom: 30px;
+    margin-top: 60px;
 }
 
 .gold-bg{
@@ -65,25 +65,15 @@
 }
 
 .brooklyn-public-library-text{
-    font-family: 'Forum';
-    font-size: 30px;
-    font-weight: 400;
-    line-height: 50px;
-    letter-spacing: 2%;
+    @include font ('Forum', 30px, 400, 50px, 2%);
     text-align: left;
 }
 
 .input-library-card{
+    @include font ('Forum', 30px, 400, 50px, 2%);
     border-radius: 10px;
     background: rgb(255, 255, 255);
-    width: 500px;
-    height: 66px;
     color: rgb(142, 142, 142);
-    font-family: 'Forum';
-    font-size: 30px;
-    font-weight: 400;  
-    line-height: 50px;
-    letter-spacing: 2%;
     text-align: left;
     padding-left: 20px; 
     outline:none;
@@ -91,6 +81,8 @@
 }
 
 .card-button{
+    @extend %transition;
+    @include font ('Inter', 20px, 700, 24px, 1px, normal);
     box-sizing: border-box;
     border: 1px solid rgb(12, 12, 14);
     border-radius: 2px;
@@ -98,11 +90,6 @@
     height: 44px;
     background-color: #FFF;
     padding: 10px 40px 10px 40px;
-    font-family: 'Inter';
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-    letter-spacing: 1px;
     text-align: center;
 }
 
@@ -110,44 +97,48 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 35px;
-    width: 456px;
+    gap: 60px;
+    &-text{
+        @include font ('Forum', 30px, 400, 33px, 2%);
+        text-align: center;
+    }
+    @include media-laptop {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    @include media-tablet {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
 }
 
-.get-a-card-text{
-    font-family: 'Forum';
-    font-size: 30px;
-    font-weight: 400;
-    line-height: 33px;
-    letter-spacing: 2%;
-    text-align: center;
-}
 
 .card-text{
-    font-family: 'Inter';
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 40px;
-    letter-spacing: 2%;
+    @include font ('Inter', 20px, 400, 24px, 2%);
     text-align: right;
+    @include media-laptop {
+        text-align: center;
+        @include font ('Inter', 20px, 400, 40px, 2%);
+    }
+    @include media-tablet {
+        text-align: center;
+        @include font ('Inter', 20px, 400, 40px, 2%);
+    }
 }
+
+
 
 .get-a-card-buttons{
     display: flex;
     gap: 20px;
-}
-
-.get-a-card-button{
-    box-sizing: border-box;
-    border: 1px solid rgb(12, 12, 14);
-    border-radius: 2px;
-    background-color: #FFF;
-    width: 75px;
-    height: 30px;
-    font-family: 'Inter';
-    font-size: 10px;
-    font-weight: 700;
-    line-height: 12px;
-    letter-spacing: 1px;
-    text-align: center;
+    * { @extend %transition;
+        @include font ('Inter', 10px, 700, 12px, 1px, normal);
+        border: 1px solid rgb(12, 12, 14);
+        border-radius: 2px;
+        background-color: #FFF;
+        width: 75px;
+        height: 30px;
+    }
 }

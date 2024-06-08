@@ -5,8 +5,14 @@
   font-family: "Inter-bold";
   src: url(../fonts/Inter-Bold.otf);
 }
-.gallery-line, .get-a-card-button, .card-button, .book-button {
+.get-a-card-buttons *, .card-button, .book-button, .gallery-line {
   transition: all 0.5s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 a {
@@ -16,30 +22,34 @@ a {
 html {
   scroll-behavior: smooth;
   background-color: #BB945F;
+  font-size: 10px;
 }
 
 h1 {
   color: #FFF;
   font-family: "Forum";
-  font-size: 30px;
-  font-style: normal;
+  font-size: 3rem;
   font-weight: 400;
-  line-height: 50px;
-  letter-spacing: 0.6px;
+  line-height: 5rem;
+  letter-spacing: 0.06rem;
+  font-style: normal;
   align-self: center;
   margin-left: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
+  width: 300px;
+  display: inline-block;
 }
 
 h2 {
   color: #0C0C0E;
   font-family: "Forum";
   font-size: 40px;
-  font-style: normal;
   font-weight: 400;
   line-height: 40px;
   letter-spacing: 2px;
+  font-style: normal;
+  font-family: "Forum";
   text-transform: capitalize;
   text-align: center;
   padding-top: 20px;
@@ -59,32 +69,98 @@ h2::after {
   background: #0C0C0E;
 }
 
+.humberger::after, .humberger::before, .humberger-line {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  border-radius: 3px;
+}
+
+.humberger {
+  display: none;
+  width: 45px;
+  height: 30px;
+  position: relative;
+  margin-left: 20px;
+}
+@media (max-width: 768px) {
+  .humberger {
+    display: inline-block;
+  }
+}
+@media (max-width: 1024px) {
+  .humberger {
+    display: inline-block;
+  }
+}
+.humberger-line {
+  top: calc(50% - 1.5px);
+  left: 0;
+}
+.humberger::before {
+  top: 0;
+  left: 0;
+}
+.humberger::after {
+  bottom: 0;
+  left: 0;
+}
+
 .wrapper {
   max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
+}
+@media (max-width: 768px) {
+  .wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media (max-width: 1024px) {
+  .wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 header {
   display: flex;
   flex-wrap: nowrap;
   background: #0C0C0E;
-  position: relative;
-  z-index: 1;
+  padding: 20px;
+}
+
+.header-items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
 }
 
 .page-navigation {
   display: flex;
   align-items: flex-start;
-  flex-direction: row;
   line-height: 50px;
   gap: 30px;
-  position: absolute;
-  left: 768px;
-  top: 20px;
-  padding: 0%;
-  margin: 0%;
   list-style-type: none;
+}
+@media (max-width: 768px) {
+  .page-navigation {
+    display: none;
+  }
+}
+@media (max-width: 1024px) {
+  .page-navigation {
+    display: none;
+  }
 }
 
 .navigation-botton {
@@ -101,11 +177,7 @@ header {
 }
 
 .icon-profile {
-  flex-shrink: 0;
-  position: absolute;
-  left: 1392px;
-  top: 31px;
-  bottom: 31px;
+  margin: 0px 0px 0px 40px;
 }
 
 footer {
@@ -178,22 +250,21 @@ footer {
 }
 
 .welcome-text {
+  display: inline-block;
   color: #FFF;
-  text-align: center;
   font-family: "Forum";
   font-size: 40px;
-  font-style: normal;
   font-weight: 400;
   line-height: 50px;
   letter-spacing: 3px;
+  font-style: normal;
+  text-align: center;
   text-transform: uppercase;
   background-color: #0C0C0E;
+  padding: 35px 40px 35px 120px;
+  max-width: 500px;
   position: relative;
   top: 220px;
-  width: 520px;
-  height: 150px;
-  padding: 35px 40px;
-  margin: 0;
 }
 
 .about {
@@ -205,13 +276,24 @@ footer {
 .about-content {
   color: #000;
   text-align: center;
-  font-family: Inter;
+  font-family: "Inter";
   font-size: 20px;
-  font-style: normal;
   font-weight: 400;
   line-height: 40px;
+  letter-spacing: 0px;
+  font-style: normal;
   margin-top: 40px;
   margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+  .about-content {
+    padding: 0px 20px 0px 20px;
+  }
+}
+@media (max-width: 1024px) {
+  .about-content {
+    padding: 0px 20px 0px 20px;
+  }
 }
 
 .gallery {
@@ -236,6 +318,18 @@ footer {
   display: flex;
   justify-content: space-between;
 }
+@media (max-width: 768px) {
+  .slider-novigation {
+    padding: 40px 0px;
+    width: 100px;
+  }
+}
+@media (max-width: 1024px) {
+  .slider-novigation {
+    padding: 40px 0px;
+    width: 100px;
+  }
+}
 
 .favorites {
   background: white;
@@ -244,11 +338,13 @@ footer {
 }
 
 .favorites-text {
-  color: #000;
   font-family: "Inter";
   font-size: 20px;
-  font-style: normal;
   font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 1px;
+  font-style: normal;
+  color: #000;
   line-height: normal;
   padding-left: 20px;
   padding-top: 40px;
@@ -259,33 +355,50 @@ footer {
   padding-right: 20px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
+  gap: 100px;
   margin-top: 42px;
 }
-
 @media (max-width: 768px) {
   .favorites-items {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+@media (max-width: 1024px) {
+  .favorites-items {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
 .book-navigation {
   color: #000;
-  font-family: Inter;
+  font-family: "Inter";
   font-size: 20px;
-  font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  line-height: 20px;
+  letter-spacing: 1px;
+  font-style: normal;
   margin-top: 40px;
   margin-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 650px;
+  height: 20px;
+  margin-bottom: 40px;
+}
+.book-navigation * {
+  margin-right: 20px;
 }
 
 .book {
-  width: 34.375em;
-  height: 33.75em;
+  box-sizing: border-box;
+  max-width: 55rem;
+  max-height: 55rem;
   padding-bottom: 15px;
   margin-bottom: 40px;
   border: 1px solid #000;
   display: flex;
+  position: relative;
   flex-direction: column;
 }
 
@@ -293,10 +406,10 @@ footer {
   color: #000;
   font-family: "Forum";
   font-size: 20px;
-  font-style: normal;
   font-weight: 400;
   line-height: 40px;
   letter-spacing: 2px;
+  font-style: normal;
   text-transform: capitalize;
   margin-left: 20px;
   margin-top: 15px;
@@ -308,7 +421,7 @@ footer {
 .book-line {
   width: 60px;
   height: 1px;
-  background: #BB945F;
+  background: rgb(187, 148, 95);
   margin-left: 20px;
 }
 
@@ -325,10 +438,10 @@ footer {
   color: #000;
   font-family: "Inter-bold";
   font-size: 15px;
-  font-style: normal;
   font-weight: 700;
   line-height: 40px;
   letter-spacing: 2px;
+  font-style: normal;
   text-transform: uppercase;
   margin: 0%, 0%;
 }
@@ -337,27 +450,23 @@ footer {
   color: #000;
   font-family: "Inter-bold";
   font-size: 15px;
-  font-style: normal;
   font-weight: 700;
   line-height: 40px;
   letter-spacing: 2px;
+  font-style: normal;
+  letter-spacing: 2px;
   text-transform: capitalize;
   margin: 0%;
-}
-
-* {
-  margin: 0;
-  padding: 0;
 }
 
 .book-contents {
   color: #000;
   font-family: "Inter";
   font-size: 15px;
-  font-style: normal;
   font-weight: 400;
   line-height: 40px;
   letter-spacing: 2px;
+  font-style: normal;
   width: 355px;
   margin-left: 20px;
 }
@@ -367,10 +476,10 @@ footer {
   text-align: center;
   font-family: "Inter";
   font-size: 10px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
+  line-height: 30px;
   letter-spacing: 1px;
+  font-style: normal;
   width: 75px;
   height: 30px;
   flex-shrink: 0;
@@ -382,14 +491,15 @@ footer {
 }
 
 .book-cover {
+  display: inline-block;
   position: absolute;
-  margin-left: 390px;
-  margin-top: 256px;
+  left: 390px;
+  bottom: calc(0% - 1px);
   background: lightgray 50%/cover no-repeat;
 }
 
 .coffee-shop {
-  padding: 20px 20px 40px 20px;
+  padding: 60px 20px 40px 20px;
   flex-direction: column;
   align-items: center;
   gap: 40px;
@@ -400,13 +510,13 @@ footer {
 
 .coffee-shop-text {
   color: #000;
-  text-align: center;
   font-family: "Inter";
   font-size: 20px;
-  font-style: normal;
   font-weight: 400;
   line-height: 40px;
   letter-spacing: 2px;
+  font-style: normal;
+  text-align: center;
   margin-top: 40px;
 }
 
@@ -416,12 +526,19 @@ footer {
   gap: 40px;
   margin-top: 40px;
 }
-
 @media (max-width: 768px) {
   .coffee-menu {
     grid-template-columns: repeat(1, 1fr);
+    width: 100%;
   }
 }
+@media (max-width: 1024px) {
+  .coffee-menu {
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+  }
+}
+
 .menu-coffee-tea {
   display: flex;
   flex-direction: column;
@@ -432,10 +549,10 @@ footer {
   color: rgb(12, 12, 14);
   font-family: "Forum";
   font-size: 40px;
-  font-style: normal;
   font-weight: 400;
   line-height: 40px;
   letter-spacing: 2px;
+  font-style: normal;
   text-transform: capitalize;
   padding-right: 201px;
 }
@@ -447,12 +564,12 @@ footer {
   gap: 40px;
   align-items: flex-end;
   color: rgb(12, 12, 14);
-  font-family: Forum;
+  font-family: "Forum";
   font-size: 40px;
-  font-style: normal;
   font-weight: 400;
   line-height: 40px;
   letter-spacing: 2px;
+  font-style: normal;
   text-transform: capitalize;
 }
 
@@ -465,10 +582,10 @@ footer {
   color: #000;
   font-family: "Inter";
   font-size: 20px;
-  font-style: normal;
   font-weight: 400;
   line-height: 40px;
   letter-spacing: 2px;
+  font-style: normal;
   text-transform: capitalize;
 }
 
@@ -481,10 +598,10 @@ footer {
   color: #000;
   font-family: "Forum";
   font-size: 20px;
-  font-style: normal;
   font-weight: 400;
   line-height: 40px;
   letter-spacing: 2px;
+  font-style: normal;
   text-transform: capitalize;
   align-self: flex-end;
 }
@@ -492,7 +609,7 @@ footer {
 .menu-dash {
   width: 100px;
   height: 1px;
-  background: #BB945F;
+  background: rgb(187, 148, 95);
   flex: 0 1 auto;
   align-self: center;
 }
@@ -513,19 +630,29 @@ footer {
   justify-content: space-between;
   margin-top: 40px;
 }
+@media (max-width: 768px) {
+  .contact-info {
+    flex-direction: column;
+  }
+}
+@media (max-width: 1024px) {
+  .contact-info {
+    flex-direction: column;
+  }
+}
 
 .text-info {
   display: flex;
   flex-direction: column;
   gap: 40px;
   color: #000;
-  text-align: left;
   font-family: "Inter";
   font-size: 20px;
-  font-style: normal;
   font-weight: 400;
   line-height: 40px;
   letter-spacing: 2px;
+  font-style: normal;
+  text-align: left;
   text-transform: capitalize;
 }
 
@@ -535,44 +662,74 @@ footer {
   flex-direction: column;
   gap: 20px;
 }
+@media (max-width: 768px) {
+  .text-info-block:last-child {
+    padding-bottom: 100px;
+  }
+}
+@media (max-width: 1024px) {
+  .text-info-block:last-child {
+    padding-bottom: 100px;
+  }
+}
 
 .map-info {
   width: 696px;
   height: 414px;
   background: url(../images/map.png), lightgray 50%/cover no-repeat;
 }
+@media (max-width: 768px) {
+  .map-info {
+    width: 100%;
+  }
+}
+@media (max-width: 1024px) {
+  .map-info {
+    width: 100%;
+  }
+}
 
 .digital-library-cards {
-  width: 1400px;
-  height: 614px;
+  padding: 20px;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
   background: #FFF;
-  margin-left: auto;
-  margin-right: auto;
   display: flex;
-  padding: 0 20px 0 20px;
+}
+@media (max-width: 768px) {
+  .digital-library-cards {
+    padding: 0px 85px 40px;
+  }
+}
+@media (max-width: 1024px) {
+  .digital-library-cards {
+    padding: 0px 85px 40px;
+  }
 }
 
 .library-card {
+  padding-top: 50px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 344px;
 }
-
 @media (max-width: 768px) {
   .library-card {
     grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
   }
 }
+@media (max-width: 1024px) {
+  .library-card {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+}
+
 .find-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 600px;
-  height: 453px;
-  gap: 20px;
 }
 
 .find-card-text {
@@ -581,6 +738,8 @@ footer {
   font-weight: 400;
   line-height: 36px;
   letter-spacing: 2%;
+  font-style: normal;
+  font-family: "Inter";
   text-align: left;
   align-self: center;
 }
@@ -594,6 +753,7 @@ footer {
   flex-direction: column;
   align-items: center;
   padding-bottom: 30px;
+  margin-top: 60px;
 }
 
 .gold-bg {
@@ -613,20 +773,20 @@ footer {
   font-weight: 400;
   line-height: 50px;
   letter-spacing: 2%;
+  font-style: normal;
   text-align: left;
 }
 
 .input-library-card {
-  border-radius: 10px;
-  background: rgb(255, 255, 255);
-  width: 500px;
-  height: 66px;
-  color: rgb(142, 142, 142);
   font-family: "Forum";
   font-size: 30px;
   font-weight: 400;
   line-height: 50px;
   letter-spacing: 2%;
+  font-style: normal;
+  border-radius: 10px;
+  background: rgb(255, 255, 255);
+  color: rgb(142, 142, 142);
   text-align: left;
   padding-left: 20px;
   outline: none;
@@ -634,6 +794,12 @@ footer {
 }
 
 .card-button {
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 1px;
+  font-style: normal;
   box-sizing: border-box;
   border: 1px solid rgb(12, 12, 14);
   border-radius: 2px;
@@ -641,11 +807,6 @@ footer {
   height: 44px;
   background-color: #FFF;
   padding: 10px 40px 10px 40px;
-  font-family: "Inter";
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 24px;
-  letter-spacing: 1px;
   text-align: center;
 }
 
@@ -653,44 +814,78 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 35px;
-  width: 456px;
+  gap: 60px;
 }
-
 .get-a-card-text {
   font-family: "Forum";
   font-size: 30px;
   font-weight: 400;
   line-height: 33px;
   letter-spacing: 2%;
+  font-style: normal;
   text-align: center;
+}
+@media (max-width: 1024px) {
+  .get-a-card {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .get-a-card {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
 }
 
 .card-text {
   font-family: "Inter";
   font-size: 20px;
   font-weight: 400;
-  line-height: 40px;
+  line-height: 24px;
   letter-spacing: 2%;
+  font-style: normal;
   text-align: right;
+}
+@media (max-width: 1024px) {
+  .card-text {
+    text-align: center;
+    font-family: "Inter";
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2%;
+    font-style: normal;
+  }
+}
+@media (max-width: 768px) {
+  .card-text {
+    text-align: center;
+    font-family: "Inter";
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2%;
+    font-style: normal;
+  }
 }
 
 .get-a-card-buttons {
   display: flex;
   gap: 20px;
 }
-
-.get-a-card-button {
-  box-sizing: border-box;
-  border: 1px solid rgb(12, 12, 14);
-  border-radius: 2px;
-  background-color: #FFF;
-  width: 75px;
-  height: 30px;
+.get-a-card-buttons * {
   font-family: "Inter";
   font-size: 10px;
   font-weight: 700;
   line-height: 12px;
   letter-spacing: 1px;
-  text-align: center;
+  font-style: normal;
+  border: 1px solid rgb(12, 12, 14);
+  border-radius: 2px;
+  background-color: #FFF;
+  width: 75px;
+  height: 30px;
 }/*# sourceMappingURL=style.css.map */

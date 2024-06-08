@@ -1,24 +1,34 @@
-
 header {
     display: flex;
     flex-wrap: nowrap;
     background: #0C0C0E;
-    position: relative;
-    z-index: 1;
+    padding: 20px;
+}
+
+.header-items{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.navigation{
+    display: flex;
+    align-items: center;
 }
 
 .page-navigation{
     display: flex;
     align-items: flex-start;
-    flex-direction: row;
     line-height: 50px;
     gap: 30px;
-    position: absolute;
-    left: 768px;
-    top: 20px;
-    padding: 0%;
-    margin: 0%;
     list-style-type: none;
+    @include media-tablet {
+        display: none;
+    }
+    @include media-laptop {
+        display: none;
+    }
 }
 
 .navigation-botton {
@@ -35,9 +45,5 @@ header {
 }
 
 .icon-profile{
-    flex-shrink: 0;
-    position: absolute;
-    left: 1392px;
-    top: 31px;
-    bottom: 31px;
+    margin: 0px 0px 0px 40px;
 }

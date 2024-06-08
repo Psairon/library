@@ -5,11 +5,8 @@
 }
 
 .favorites-text{
+    @include font ('Inter', 20px, 700, 20px, 1px);
     color: #000;
-    font-family: 'Inter';
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
     line-height: normal;
     padding-left: 20px;
     padding-top: 40px;
@@ -20,45 +17,47 @@
     padding-right: 20px;
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
-    gap: 40px;
+    gap: 100px;
     margin-top: 42px;
-}
-
-@media (max-width: 768px) {
-    .favorites-items {
-      grid-template-columns: repeat(1, 1fr);
+    @include media-tablet {
+        grid-template-columns: repeat(1, 1fr);
     }
-  }
+    @include media-laptop {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
 
 .book-navigation{
     color: #000;
-    font-family: Inter;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    @include font ('Inter', 20px, 400, 20px, 1px);
     margin-top: 40px;
     margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 650px;
+    height: 20px;
+    margin-bottom: 40px;
+    *{
+        margin-right: 20px;
+    }
 }
 
 .book{
-    width: 34.375em;
-    height: 33.75em;
+    box-sizing: border-box; 
+    max-width: 55rem;
+    max-height: 55rem;
     padding-bottom: 15px;
     margin-bottom: 40px;
     border: 1px solid #000;
     display: flex;
+    position: relative;
     flex-direction: column;
 }
 
 .book-caption{
     color: #000;
-    font-family: 'Forum';
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 40px; 
-    letter-spacing: 2px;
+    @include font ('Forum', 20px, 400, 40px, 2px);
     text-transform: capitalize;
     margin-left: 20px;
     margin-top: 15px;
@@ -70,7 +69,7 @@
 .book-line{
     width: 60px;
     height: 1px;
-    background: #BB945F;
+    background: $color-additional;
     margin-left: 20px;
 }
 
@@ -85,55 +84,31 @@
 
 .book-title{
     color: #000;
-    font-family: 'Inter-bold';
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 40px;
-    letter-spacing: 2px;
+    @include font ('Inter-bold', 15px, 700, 40px, 2px);
     text-transform: uppercase;
     margin: 0%, 0%;
 }
 
 .book-author{
     color: #000;
-    font-family: 'Inter-bold';
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 40px;
+    @include font ('Inter-bold', 15px, 700, 40px, 2px);
     letter-spacing: 2px;
     text-transform: capitalize;
     margin: 0%;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
-
 .book-contents{
     color: #000;
-    font-family: 'Inter';
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 40px;
-    letter-spacing: 2px;
+    @include font ('Inter', 15px, 400, 40px, 2px);
     width: 355px;
     margin-left: 20px;
 }
 
 .book-button{
+    @extend %transition;
     color: #0C0C0E;
     text-align: center;
-    font-family: 'Inter';
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: 1px;
+    @include font ('Inter', 10px, 700, 30px, 1px);
     width: 75px;
     height: 30px;
     flex-shrink: 0;
@@ -145,8 +120,9 @@
 }
 
 .book-cover{
+    display: inline-block;
     position: absolute;
-    margin-left: 390px;
-    margin-top: 256px;
+    left: 390px;
+    bottom: calc(0% - 1px);
     background: lightgray 50% / cover no-repeat;
 }

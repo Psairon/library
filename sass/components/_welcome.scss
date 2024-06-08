@@ -7,20 +7,14 @@
     }
     
     .welcome-text{
+        display: inline-block;
         color: #FFF;
+        @include font ('Forum', 40px, 400, 50px, 3px);
         text-align: center;
-        font-family: 'Forum';
-        font-size: 40px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 50px;
-        letter-spacing: 3px;
         text-transform: uppercase;
         background-color: #0C0C0E;
+        padding: 35px 40px 35px 120px;
+        max-width: 500px;
         position: relative;
         top: 220px;
-        width: 520px;
-        height: 150px;
-        padding: 35px 40px;
-        margin: 0;
     }

@@ -12,6 +12,20 @@
     }
 }
 
+.digital-library-cards-loged-in{
+    padding: 20px;
+    flex-direction: column;
+    align-items: center; 
+    background: #FFF;
+    display: none;
+    @include media-tablet {
+        padding: 0px 85px 40px;
+    }
+    @include media-laptop {
+        padding: 0px 85px 40px;
+    }
+}
+
 .library-card{
     padding-top: 50px;
     display: grid;
@@ -80,6 +94,17 @@
     border: none;
 }
 
+.input-library-card-loged-in{
+    @include font ('Forum', 30px, 400, 50px, 2%);
+    border-radius: 10px;
+    background: rgb(255, 255, 255);
+    color: $color-praimary;
+    text-align: left;
+    padding-left: 20px; 
+    outline:none;
+    border: none;
+}
+
 .card-button{
     @extend %transition;
     @include font ('Inter', 20px, 700, 24px, 1px, normal);
@@ -92,6 +117,22 @@
     padding: 10px 40px 10px 40px;
     text-align: center;
 }
+
+.card-loged-in{
+    @extend %transition;
+    @include font ('Inter', 10px, 400, 20px, 2%, normal);
+    text-align: center;
+    text-transform: capitalize;
+    box-sizing: border-box;
+    border-radius: 2px;
+    width: 262px;
+    height: 44px;
+    padding: 0px 40px 10px 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
 
 .get-a-card{
     display: flex;
@@ -116,8 +157,9 @@
 
 
 .card-text{
-    @include font ('Inter', 20px, 400, 24px, 2%);
+    @include font ('Inter', 20px, 400, 40px, 2%);
     text-align: right;
+    width: 456px;
     @include media-laptop {
         text-align: center;
         @include font ('Inter', 20px, 400, 40px, 2%);

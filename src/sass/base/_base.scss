@@ -47,3 +47,21 @@ h2::after{
     flex-shrink: 0;
     background: #0C0C0E;
 }
+
+button{
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: $color-additional;
+}
+
+.display-none {
+    display: none;
+}
+
+input {
+    radio {
+        cursor: pointer;
+    }
+}

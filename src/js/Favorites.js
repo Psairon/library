@@ -1,9 +1,9 @@
 export class Favorites {
-    constructor({ id, title, author, contetn, image }) {
+    constructor({ id, title, author, content, image }) {
         this.id = id;
         this.title = title;
         this.author = author;
-        this.contetn = contetn;
+        this.content = content;
         this.image = image;
     }
 
@@ -21,7 +21,7 @@ export class Favorites {
 
         template += `</div>`;
 
-        template += `<p class="book-contents">${this.contetn}</p>`;
+        template += `<p class="book-contents">${this.content }</p>`;
 
         template += `<button class="book-button"> Buy </button>`;
         template += `<img src=${this.image} alt="" class="book-cover">`;
@@ -31,23 +31,4 @@ export class Favorites {
         favorit.innerHTML = template;
         return favorit;
     }
-};
-
-
-window.onload = function() {
-    console.log('Hello Rolling Scopes!');
-
-    // Render Favorites
-    if(data) {
-        renderFavoritesToDom();
-    }
-};
-
-const renderFavoritesToDom = (data) => {
-    let favoritesBlock = [];
-    data.forEach(favorite => {
-        favoritesBloc.push(new Favorites( favorit ))
-    });
-    console.log(favoritesDlock);
-    return Favorites;
 }

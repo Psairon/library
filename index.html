@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/src/sass/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="/src/index.js" defer></script>
+    <script src="/build/bundle.js"></script>
     <title>Library</title>
 </head>
 <body class="wrapper">
@@ -21,7 +21,7 @@
                     <li class="navigation-button"><a href="#digital-library-cards" class="navigation-text">Library Card</a></li>
                 </ul>
                 <div class="icon-profile">
-                    <img src="/src/images/icon_profile.svg" alt="icon profile">
+                    <img src="/src/images/icon_profile.svg" alt="profile">
                 </div>
                 <span class="header-hamburger humberger"><span class="humberger-line"></span></span>
             </div>
@@ -33,7 +33,7 @@
                     <p class="welcome-text">Welcome to the Brooklyn Library</p>
                 </div>
             </section>
-            <section class="about">
+            <section class="about" id="about">
                 <h2>About</h2>
                 <p class="about-content">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside </p>
                 <div class="gallery">
@@ -46,19 +46,19 @@
                     </div>
                 </div>    
                 <div class="slider-novigation">
-                    <input checked type="radio" id="start" checked>
-                    <input type="radio" id="next">
-                    <input type="radio"  id="finish">
+                    <input checked type="radio" name="sldr" id="start" >
+                    <input type="radio" name="sldr" id="next">
+                    <input type="radio" name="sldr"  id="finish">
                 </div>     
             </section>
-            <section class="favorites">
+            <section class="favorites" id="favorites">
                 <h2>Favorites</h2>
                 <p class="favorites-text">Pick favorites of season</p>
                 <div class="book-navigation">
-                    <label for="winter"><input type="radio" id="winter" name="section" value="winter" checked>Winter</label>
-                    <label for="spring"><input type="radio" id="spring" name="section" value="spring">Spring</label>
-                    <label for="summer"><input type="radio" id="summer" name="section" value="summer">Summer</label>
-                    <label for="autumn"><input type="radio" id="autumn" name="section" value="autumn">Autumn</label>
+                    <label for="booksForWinter"><input type="radio" id="booksForWinter" name="section" value="winter" class="input-favorites" checked>Winter</label>
+                    <label for="booksForSpring"><input type="radio" id="booksForSpring" name="section" value="spring" class="input-favorites">Spring</label>
+                    <label for="booksForSummer"><input type="radio" id="booksForSummer" name="section" value="summer" class="input-favorites">Summer</label>
+                    <label for="booksForAutumn"><input type="radio" id="booksForAutumn" name="section" value="autumn" class="input-favorites">Autumn</label>
                 </div>
                 <div class="favorites-items">
                     <div class="book">
@@ -107,7 +107,7 @@
                     </div>
                 </div>
             </section>
-            <section class="coffee-shop">
+            <section class="coffee-shop" id="coffee-shop">
                 <h2>Coffee shop</h2>
                 <p class="coffee-shop-text">In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation. 
                     you can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.</p>
@@ -180,7 +180,7 @@
                     </div>
                 </div>
             </section>
-            <section class="our-contacts">
+            <section class="our-contacts" id="our-contacts">
                 <h2>Our Contacts</h2>
                 <div class="contact-info">
                     <div class="text-info">
@@ -198,7 +198,47 @@
                     <div class="map-info"></div>
                 </div>
             </section>
-            <section class="digital-library-cards">
+            <section class="digital-library-cards-loged-in" style="background-color: white;">
+                <h2>Digital Library Cards</h2>
+                <div class="library-card">
+                    <div class="find-card">
+                        <p class="find-card-text">Your Library card</p>
+                        <div class="white-bg">
+                            <div class="gold-bg">
+                                <h3 class="brooklyn-public-library-text">Brooklyn Public Library</h3>
+                                <input class="input-library-card-loged-in" type="text" placeholder="Jone Doe" disabled>
+                                <input class="input-library-card-loged-in" type="text" placeholder="F00234030" disabled>
+                            </div>
+                            <div class="card-loged-in">
+                                <div class="card-icon-profile">
+                                    <p>visits</p>
+                                    <img src="/src/images/icon-loged-in-men.svg" alt="me">
+                                    <p>23</p>
+                                </div>
+                                <div class="card-icon-profile">
+                                    <p>bonuses</p>
+                                    <img src="/src/images/icon-sun.svg" alt="sun">
+                                    <p>1240</p>
+                                </div>
+                                <div class="card-icon-profile">
+                                    <p>Books</p>
+                                    <img src="/src/images/icon-book.svg" alt="me">
+                                    <p>7</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="get-a-card">
+                        <h3 class="get-a-card-text">Visit your profile</h3>
+                        <p class="card-text">With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.</p>
+                        <div class="get-a-card-buttons">
+                            <button class="profile-button">Profile</button>
+                            <button class="log-out">Log out</button>
+                        </div>
+                    </div>    
+                </div>
+            </section>
+            <section class="digital-library-cards" id="digital-library-cards">
                 <h2>Digital Library Cards</h2>
                 <div class="library-card">
                     <div class="find-card">
@@ -216,8 +256,8 @@
                         <h3 class="get-a-card-text">Get a reader card</h3>
                         <p class="card-text">You will be able to see a reader card after logging into account or you can register a new account</p>
                         <div class="get-a-card-buttons">
-                            <button>Sign up</button>
-                            <button>Log in</button>
+                            <button class="sing-up">Sign up</button>
+                            <button class="log-in">Log in</button>
                         </div>
                     </div>    
                 </div>

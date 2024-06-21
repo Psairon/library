@@ -122,63 +122,196 @@ const booksForAutumn = [
     },
 ]
 
-//Слайдер
-document.addEventListener('DOMContentLoaded', () => {
-    let slideContainer = document.querySelector('.gallery-line');
-    let currentIndex = 0;
-    const slideWidth = 470; 
-
-    const slideNext = () => {
-        if (currentIndex < slideContainer.children.length - 1) {
-            currentIndex++;
-            slideContainer.style.left = -(slideWidth) + 'px';
-        }
-        updateInputsState();
-    };
-
-    const slideFinish = () => {
-        currentIndex = slideContainer.children.length - 1;
-        slideContainer.style.left = -(slideWidth * 2) + 'px';
-        updateInputsState();
-    };
-
-    const slideStart = () => {
-        currentIndex = 0;
-        slideContainer.style.left = '0px';
-        updateInputsState();
-    };
-
-    document.getElementById('next').addEventListener('click', slideNext);
-    document.getElementById('start').addEventListener('click', slideStart);
-    document.getElementById('finish').addEventListener('click', slideFinish);
-});
-
-//создание Favorites
-
 window.onload = function() {
-    console.log('Hello Rolling Scopes!');
 
     //navigation of favorites
     addFavoritesNavigationHandler();
 
     //favorites
     renderFavoritesToDom();
-
     
-    //Base Modal
+    //login/singup modals
     loginModalHandler();
     singUpModalHandler();
 
-    //profile
+    //profile modal
     openProfile();
+
+    //updateUI
     loggedIn();
     logout();
+
 };
+
+    //slider
+document.addEventListener('DOMContentLoaded', () => {
+
+    const BUTTON = document.querySelectorAll('.btn-dots input');
+    let checkedRadio = 1;
+    const CAROUSEL = document.querySelector('.carousel');
+    let isAnimating = false;
+
+    const MoveSlider = (event) => {
+        if (isAnimating) {
+            return;
+        }
+        if (checkedRadio === event.target.id) { 
+            return;
+        } else if (checkedRadio - event.target.id === -1) {
+            CAROUSEL.classList.add('transition-right');
+            checkedRadio = event.target.id;
+        } else if (checkedRadio - event.target.id === -2) {
+            CAROUSEL.classList.add('transition-right2');
+            checkedRadio = event.target.id;
+        } else if (checkedRadio - event.target.id === 1) {
+            CAROUSEL.classList.add('transition-left');
+            checkedRadio = event.target.id;
+        } else if (checkedRadio - event.target.id === 2) {
+            CAROUSEL.classList.add('transition-left2');
+            checkedRadio = event.target.id;
+        }
+    };
+
+    BUTTON.forEach(element => {
+        element.addEventListener('click', event => {
+            MoveSlider(event);
+        });
+    });
+
+    const updateSliderValue = () => {
+        Array.from(document.querySelectorAll('#item-active div')).reduce((i, div) => {
+            div.className = ''; 
+            div.classList.add('card', `img-${i}`); 
+            return i + 1; 
+        }, +checkedRadio);
+    };
+
+    const generateLeftBlock = () => {
+        if (+checkedRadio === 2) {
+            document.querySelector('#item-left > div:last-child').classList = '';
+            document.querySelector('#item-left > div:last-child').classList.add('card', `img-${+checkedRadio - 1}`);
+            } else if (+checkedRadio === 3) {
+            document.querySelector('#item-left > div:last-child').classList = '';
+            document.querySelector('#item-left > div:first-child').classList.add('card', `img-${+checkedRadio -2}`);
+            document.querySelector('#item-left > div:last-child').classList.add('card', `img-${+checkedRadio - 1}`);
+            }
+        };
+
+    const generateRightBlock = () => {
+        if (+checkedRadio === 2) {
+            document.querySelector('#item-right > div:first-child').classList = '';
+            document.querySelector('#item-right > div:first-child').classList.add('card', `img-${+checkedRadio + 3}`);
+            } else if (+checkedRadio === 1) {
+            document.querySelector('#item-right > div:first-child').classList = '';
+            document.querySelector('#item-right > div:last-child').classList.add('card', `img-${+checkedRadio + 4}`);
+            document.querySelector('#item-right > div:first-child').classList.add('card', `img-${+checkedRadio + 3}`);
+            }
+        };
+
+    CAROUSEL.addEventListener('animationstart', () => {
+        isAnimating = true;
+        BUTTON.forEach((element) => {
+            element.disabled = true;
+            element.classList.add('inactive');
+        });
+    });
+
+    CAROUSEL.addEventListener('animationend', (animation) => {
+        if (animation.animationName === 'move-right') {
+            CAROUSEL.classList.remove('transition-right');
+            updateSliderValue();
+            generateLeftBlock();
+            generateRightBlock();
+            isAnimating = false;
+        } else if (animation.animationName === 'move-right2') {
+            CAROUSEL.classList.remove('transition-right2');
+            updateSliderValue();
+            generateLeftBlock();
+            generateRightBlock();
+            isAnimating = false;
+        } else if (animation.animationName === 'move-left') {
+            CAROUSEL.classList.remove('transition-left');
+            updateSliderValue();
+            generateLeftBlock();
+            generateRightBlock();
+            isAnimating = false;
+        } else if (animation.animationName === 'move-left2') {
+            CAROUSEL.classList.remove('transition-left2');
+            updateSliderValue();
+            generateRightBlock();
+            generateLeftBlock();
+            isAnimating = false;
+        } else if (animation.animationName === 'move-right-tablet') {
+            CAROUSEL.classList.remove('transition-right-tablet');
+            updateSliderValueforMoveRightTablet();
+            isAnimating = false;
+        } else if (animation.animationName === 'move-left-tablet') {
+            CAROUSEL.classList.remove('transition-left-tablet');
+            updateSliderValueforMoveLeftTablet();
+            isAnimating = false;
+        }
+        BUTTON.forEach((element) => {
+            element.disabled = false;
+            element.classList.remove('inactive');
+        });
+    });
+    
+    //tablet slider 
+    const LEFT = document.querySelector('.slider-novigation-left');
+    const RIGHT = document.querySelector('.slider-novigation-right');
+    let tabletIndex = 1;
+    const ALL_CARDS = [
+        document.querySelector('#card-1'),
+        document.querySelector('#card-2'),
+        document.querySelector('#card-3')
+    ] 
+
+    LEFT.addEventListener('click', () => {
+        if (!isAnimating) {
+            CAROUSEL.classList.add('transition-left-tablet');
+        }
+    });
+
+    RIGHT.addEventListener('click', () => {
+        if (!isAnimating) {
+            CAROUSEL.classList.add('transition-right-tablet');
+        }
+    });
+
+    const updateSliderValueforMoveLeftTablet = () => {
+        ALL_CARDS.forEach((element) => {
+            element.className = '';
+        })
+        ALL_CARDS[2].classList.add('card', `img-${(tabletIndex === 5 ? 1 : +tabletIndex + 1)}`);
+        ALL_CARDS[1].classList.add('card', `img-${tabletIndex}`);
+        ALL_CARDS[0].classList.add('card', `img-${(tabletIndex === 1 ? 5 : tabletIndex - 1)}`);
+        if (+tabletIndex === 1) {
+            tabletIndex = 5;
+        } else {
+            tabletIndex -= 1;
+        }
+    };
+    const updateSliderValueforMoveRightTablet = () => {
+        ALL_CARDS.reduce((i, div) => {
+            (i === 6 ? i = 1 : i);
+            div.className = ''; 
+            div.classList.add('card', `img-${i}`); 
+            return i += 1;
+        }, +tabletIndex + 1);
+        if (+tabletIndex === 5) {
+            tabletIndex = 1;
+        } else {
+            tabletIndex += 1;
+        }
+    };
+
+});
 
 let stateInputOfFavorites = booksForWinter;
 let isLoggedIn = false;
 
     //favorites
+
 const addFavoritesNavigationHandler = () => {
     document.querySelector('.book-navigation').addEventListener('click', (event) => {
        if (event.target.classList.contains('input-favorites')) {
@@ -198,7 +331,9 @@ const addFavoritesNavigationHandler = () => {
 const renderFavoritesToDom = () => {
     const favoritesBlock = getFavoritesBlock();
     generateFavorits(stateInputOfFavorites).forEach( book => {
-        favoritesBlock.appendChild(book.generateFavorit());
+        const newCard = book.generateFavorit();
+        newCard.classList.add('fade-in-animation'); 
+        favoritesBlock.appendChild(newCard);
     })
 };
 const getFavoritesBlock = () => {
@@ -206,6 +341,7 @@ const getFavoritesBlock = () => {
     favoritesConteiner.innerHTML = '';
     return favoritesConteiner;
 };
+
 const generateFavorits = (data) => {
     let favoritesBlock = [];
     data.forEach( book => {
@@ -213,7 +349,8 @@ const generateFavorits = (data) => {
     });
     return favoritesBlock;
 }
-    //profile
+
+    //profile Modal
 const openProfile = () => {
     document.querySelector('.profile-button').addEventListener('click', (event) => {
         generateProfileModal();
@@ -242,23 +379,18 @@ const generateProfileModal = () => {
     closeModal();
 };
 
-// login logout Modal
 
-//ивент на запуск генерации модального окна входа и регистрации
+// login logout Modals
 const loginModalHandler = () => {
      document.querySelector('.log-in').addEventListener('click', (event) => {
         generateLogInModal();
     })
 }
-
 const singUpModalHandler = () => {
     document.querySelector('.sing-up').addEventListener('click', (event) => {
         generateSingUpModal();
     })
 }
-
-
-//смена состояний 
 
 const switchModalWindowToLogIn = () => {    
     document.querySelector('.change-login').addEventListener('click', (event) => {
@@ -274,7 +406,6 @@ const switchModalWindowToSingUp = () => {
     })
 }
 
-//создание модального окна входа
 const generateLogInModal = () => {
     renderModalWindow (`<img src="/src/images/cross.svg" class="exit" alt="exit"><p class="regisration-title">Login</p><div class="input-regisration"><p>E-mail or readers card</p><input type="text" id=""></div><div class="input-regisration"><p>Password</p><input type="text" id="reg"></div><button class="log">Log in</button><div class="regisration-footer"><p>Don't have an account?</p><p class="change-registration">Register</p></div>`)
     switchModalWindowToSingUp();
@@ -282,7 +413,6 @@ const generateLogInModal = () => {
     login();
 }
 
-//создание модального окна регистрации
 const generateSingUpModal = () => { 
     renderModalWindow (`<img src="/src/images/cross.svg" class="exit" alt="exit"><p class="regisration-title">Register</p><div class="input-regisration"><p>First name</p><input type="text" id=""></div><div class="input-regisration"><p>Last name</p><input type="text" id="reg"></div><div class="input-regisration"><p>E-mail</p><input type="text" id="reg"></div><div class="input-regisration"><p>Password</p><input type="text" id="reg"></div><button class="singup">Sign Up</button><div class="regisration-footer"><p>Already have an account?</p><p class="change-login">Login</p></div>`);
     switchModalWindowToLogIn();
@@ -296,13 +426,13 @@ const welcomeModal = () => {
     closeModal();
 }
 
-//генератор контента любых модальных окон
+
+//global modals functions
 const renderModalWindow = (content) => {
     let modalWindow = new Modal();
     modalWindow.buildModal(content);
 }
 
-//удаление предыдущего подального окна 
 const deliteModalWindow = () => {
     document.querySelector('.overlay').remove();
 }
@@ -314,13 +444,13 @@ const removeOverlay = (e) => {
     } 
 } 
 
-//закрытие модального окна по клику на крестик или оверлей
 const closeModal = () => {
     document.querySelector('.overlay').addEventListener('click', removeOverlay);
     document.querySelector('.exit').addEventListener('click', removeOverlay);
 }
 
-// Функция для входа в аккаунт
+// updateUI
+
 const login = () => {
     document.querySelector('.log').addEventListener('click', () => {
         isLoggedIn = true;
@@ -339,7 +469,6 @@ const singUp = () => {
     });
 }
 
-// Функция для выхода из аккаунта
 const logout = () => {
     document.querySelector('.log-out').addEventListener('click', () => {
         isLoggedIn = false;
@@ -347,14 +476,11 @@ const logout = () => {
     });
 }
 
-// Функция для обновления пользовательского интерфейса в зависимости от состояния входа
 const updateUI = () => {
     if (isLoggedIn === true) {
-        // Показывать элементы интерфейса для вошедшего пользователя
         document.querySelector('.digital-library-cards-loged-in').style.display = 'flex';
         document.querySelector('.digital-library-cards').style.display = 'none';
     } else {
-        // Показывать элементы интерфейса для гостя
         document.querySelector('.digital-library-cards').style.display = 'flex';
         document.querySelector('.digital-library-cards-loged-in').style.display = 'none';
     }

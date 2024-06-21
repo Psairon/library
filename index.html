@@ -35,21 +35,36 @@
             </section>
             <section class="about" id="about">
                 <h2>About</h2>
-                <p class="about-content">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside </p>
-                <div class="gallery">
-                    <div class="gallery-line">
-                        <img src="/src/images/gallery-1.png" alt="gallery-1">
-                        <img src="/src/images/gallery-2.png" alt="gallery-2">
-                        <img src="/src/images/gallery-3.png" alt="gallery-3">
-                        <img src="/src/images/gallery-4.png" alt="gallery-4">
-                        <img src="/src/images/gallery-5.png" alt="gallery-5">
+                <p class="about-content">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside </p>             
+                <div class="wrapper-slider">
+                    <div class="slider-novigation-left"></div>
+                    <div class="carousel-wrapper" id="carousel-wrapper">
+                      <div class="carousel" id="carousel">
+                        <div class="item" id="item-left">
+                          <div class="card"></div>
+                          <div class="card"></div>
+                        </div>
+                        <div class="item" id="item-active">
+                          <div class="card img-1" id="card-1"></div>
+                          <div class="card img-2" id="card-2"></div>
+                          <div class="card img-3" id="card-3"></div>
+                        </div>
+                        <div class="item" id="item-right">
+                          <div class="card img-4"></div>
+                          <div class="card img-5"></div>
+                        </div>
                     </div>
-                </div>    
-                <div class="slider-novigation">
-                    <input checked type="radio" name="sldr" id="start" >
-                    <input type="radio" name="sldr" id="next">
-                    <input type="radio" name="sldr"  id="finish">
-                </div>     
+                    <div class="btn-dots">
+                      <input type="radio" name="sldr-nvg1" id="1" checked >
+                      <label for="1"></label>
+                      <input type="radio" name="sldr-nvg1" id="2">
+                      <label for="2"></label>
+                      <input type="radio" name="sldr-nvg1"  id="3">
+                      <label for="3"></label>
+                    </div>
+                    </div>
+                    <div class="slider-novigation-right"></div>
+                </div>  
             </section>
             <section class="favorites" id="favorites">
                 <h2>Favorites</h2>
@@ -61,50 +76,6 @@
                     <label for="booksForAutumn"><input type="radio" id="booksForAutumn" name="section" value="autumn" class="input-favorites">Autumn</label>
                 </div>
                 <div class="favorites-items">
-                    <div class="book">
-                        <p class="book-caption">Staff Picks</p>
-                        <div class="book-line"></div>
-                        <div class="book-general-information">
-                            <p class="book-title">The Book Eaters</p> 
-                            <p class="book-author"> By Sunyi Dean</p>
-                        </div>    
-                        <p class="book-contents">An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</p>
-                        <button class="book-button"> Buy </button>
-                        <img src="/src/images/book.png" alt="The Book Eaters" class="book-cover">
-                    </div>
-                    <div class="book">
-                        <p class="book-caption">Staff Picks</p>
-                        <div class="book-line"></div>
-                        <div class="book-general-information">
-                            <p class="book-title">Dante: Poet of the Secular World </p> 
-                            <p class="book-author">By Erich Auerbach</p>
-                        </div>    
-                        <p class="book-contents">Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.</p>
-                        <button class="book-button"> Buy </button>
-                        <img src="/src/images/book-3.png" alt="Cackle" class="book-cover">
-                    </div>
-                    <div class="book">
-                        <p class="book-caption">Staff Picks</p>
-                        <div class="book-line"></div>
-                        <div class="book-general-information">
-                            <p class="book-title">Cackle</p> 
-                            <p class="book-author">By Rachel Harrison</p>
-                        </div>    
-                        <p class="book-contents">Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.</p>
-                        <button class="book-button"> Buy </button>
-                        <img src="/src/images/book-2.png" alt="" class="book-cover">
-                    </div>
-                    <div class="book">
-                        <p class="book-caption">Staff Picks</p>
-                        <div class="book-line"></div>
-                        <div class="book-general-information">
-                            <p class="book-title">The Last Queen</p> 
-                            <p class="book-author">By Clive Irving</p>
-                        </div>    
-                        <p class="book-contents">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
-                        <button class="book-button"> Buy </button>
-                        <img src="/src/images/book-4.png" alt="" class="book-cover">
-                    </div>
                 </div>
             </section>
             <section class="coffee-shop" id="coffee-shop">

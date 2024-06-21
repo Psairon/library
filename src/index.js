@@ -142,7 +142,6 @@ window.onload = function() {
     logout();
 
 };
-
     //slider
 document.addEventListener('DOMContentLoaded', () => {
 

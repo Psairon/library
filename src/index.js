@@ -1,5 +1,6 @@
 import { Modal } from './js/Modal';
 import { Favorites } from './js/Favorites';
+import './sass/style.scss';
 
 const booksForWinter = [
     {

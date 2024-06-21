@@ -1,4 +1,5 @@
-const path = require('path')
+const path = require('path');
+
 module.exports = {
    watch: true,
    entry: "./src/index.js",
@@ -12,8 +13,8 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
     },
-  module: {
-    rules: [
+    module: {
+      rules: [
         {
           test: /\.js$/,
           use: 'babel-loader',
@@ -22,9 +23,23 @@ module.exports = {
         {
           test: /\.css$/,
           use: ['style-loader', 'css-loader']
+        },
+        {
+          test: /\.(png|jpg|gif)$/,
+          use: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'images/'
+          }
         }
       ]
     },
+
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: './src/index.html',
+        filename: 'index.html'
+      })
+    ]
   
-    mode: 'development'
 };

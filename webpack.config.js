@@ -11,5 +11,18 @@ module.exports = {
     port: 8000,
     historyApiFallback: true,
     hot: true,
+    },
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          use: 'babel-loader',
+          exclude: /node_modules/
+        },
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader']
+        }
+      ]
     }
 };

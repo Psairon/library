@@ -12,8 +12,8 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
     },
-    module: {
-      rules: [
+  module: {
+    rules: [
         {
           test: /\.js$/,
           use: 'babel-loader',
@@ -24,5 +24,7 @@ module.exports = {
           use: ['style-loader', 'css-loader']
         }
       ]
-    }
+    },
+  
+    mode: 'development'
 };

@@ -7,13 +7,13 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "webpack": "^5.91.0",
+    "webpack": "^5.92.1",
     "webpack-cli": "^5.1.4"
   },
-"scripts": {
-  "dev": "webpack --mode development",
-  "build": "webpack --mode production"
-},
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
   "dependencies": {
     "webpack-dev-server": "^5.0.4"
   }

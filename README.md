@@ -1,3 +1,3 @@
 Файлы данного проекта находятся в ветке Library, а задеплоенный проект здесь:
 
-https://library-psairon.netlify.app/
+https://psairon.github.io/library/
